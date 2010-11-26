@@ -7,15 +7,12 @@ For this reason it comes with an example project, which already has several Coco
 
 ------
 Usage
-------
-`	
-	boid = [Boid spriteWithSpriteSheet:_sheet rect: boidRect];
-	[boid setSpeedMax: 2.0f andSteeringForceMax: 1.0f];
-	[boid setWanderingRadius: 16.0f lookAheadDistance: 40.0f andMaxTurningAngle:0.2f];
-`	 
-## On your update function
-`
-	while(boid)
+##### Setting it up (use in a loop)
+`boid = [Boid spriteWithSpriteSheet:_sheet rect: boidRect];
+[boid setSpeedMax: 2.0f andSteeringForceMax: 1.0f];
+[boid setWanderingRadius: 16.0f lookAheadDistance: 40.0f andMaxTurningAngle:0.2f];`	 
+##### In your gameloop
+`while(boid)
 	{
 		Boid* b = boid;
 		boid = b->_next;
@@ -33,8 +30,7 @@ Usage
 		[b flee:badThingPosition panicAtDistance:5 usingMultiplier:0.6f]; // avoid touch
 		[b seek:yummyFoodPosition withinRange:75 usingMultiplier:0.35f]; // go towards touch
                 [b update];
-	}
-`
+	}`
 
 ------
 A bit of history 
